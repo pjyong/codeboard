@@ -1,0 +1,11 @@
+# File modified on Sun May 26 00:50:32 2013 by server
+# For security reasons, mod_php is not used on this server. Use a php.ini file for php directives
+# php_value short_open_tag 0
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+
+    RewriteEngine On
+    #RewriteBase /path/to/app
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

@@ -1,0 +1,21 @@
+<span class="selector_options">
+Theme:<select class="local_theme">
+<option value="default" <%=(editorTheme == 'default') ? "selected": ''%>>Default</option>
+<option value="blackboard" <%=(editorTheme == 'blackboard') ? "selected": ''%>>Blackboard</option>
+<option value="eclipse" <%=(editorTheme == 'eclipse') ? "selected": ''%>>Eclipse</option>
+<option value="elegant" <%=(editorTheme == 'elegant') ? "selected": ''%>>Elegant</option>
+<option value="midnight" <%=(editorTheme == 'midnight') ? "selected": ''%>>Midnight</option>
+</select>
+&nbsp;
+Language:
+<select class="code_form_language">
+    <% _.each(languages, function(language){%>
+
+        <option value="<%=language.language%>" <%=(language.language == selected) ? 'selected' : ''%>>
+        <%=language.language%>
+        </option>
+    <% })%>
+</select>
+&nbsp;
+<button id="submit_e_config">Setting as default</button>
+</span>
