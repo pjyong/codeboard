@@ -51,15 +51,17 @@ define([
         },
         
         toggleStatus: function(e){
-            var element = $(e.currentTarget);
-            if(element.prop('checked')){
+            var element = $(e.currentTarget).find('span');
+            if(!element.hasClass('checked')){
+                element.addClass('checked');
                 this.$('.code_form_status_text_private').show();
                 this.$('.code_form_status_text_public').hide();
-                element.val(1);
+                element.find('input').val(1);
             }else{
+                element.removeClass('checked');
                 this.$('.code_form_status_text_private').hide();
                 this.$('.code_form_status_text_public').show();
-                element.val(0);
+                element.find('input').val(0);
             }
         },
         enterFullscreen: function(){
@@ -89,7 +91,7 @@ define([
                 language: this.$('.code_form_language').val(),
                 // fragment: this.$('.code_form_fragment').val(),
                 fragment: this._childViews.codemirror.editor.getValue(),
-                status: this.$('.code_form_status').val()
+                status: this.$('.code_form_status').find('input').val()
             });
             var that = this;
             code.save({}, {

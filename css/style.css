@@ -261,7 +261,6 @@ color: #333;
     font-size: 0.7em;color: #999;
 }
 .warm_tips{
-    color: #393;
 font-size: 0.8em;
 }
 .code_form_submit{
@@ -283,7 +282,7 @@ vertical-align: middle;
 margin-top: -2px;
 margin-right: 7px;
 }
-.form_row_footer .right{float:right;width:170px;}
+.form_row_footer .right{float:right;width:170px;text-align: right;}
 .editor_fullscreen{
     position:absolute;
     left:0px;
@@ -394,4 +393,94 @@ margin: 0;
 font-size: 1.15em;
 background: transparent;
 padding: 0;
+}
+
+
+#editor_configs  select{
+    width:120px;
+}
+#submit_e_config{
+    margin-bottom:10px;
+}
+
+/******** checkbox  ****************/
+
+div.checker span{
+  background-image: url(../images/sprite.png);
+  background-repeat: no-repeat;
+  -webkit-font-smoothing: antialiased;
+}
+div.checker {
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+vertical-align: middle;
+zoom: 1;
+margin-right: 5px;
+margin-top: -3px;
+margin-bottom: 0px !important;
+position: relative;
+cursor: pointer;
+}
+
+div.checker input {
+  width: 19px;
+  height: 19px;
+}
+
+div.checker span {
+  background-position: 0px -260px;
+  height: 19px;
+  width: 19px;
+  display:block;
+}
+
+div.checker:active span, 
+div.checker.active span {
+  background-position: -19px -260px;
+}
+
+div.checker.focus span,
+div.checker:hover span {
+  background-position: -38px -260px;
+}
+
+div.checker.focus:active span,
+div.checker:active:hover span,
+div.checker.active:hover span,
+div.checker.focus.active span {
+  background-position: -57px -260px;
+}
+
+div.checker span.checked {
+  background-position: -76px -260px;
+}
+
+div.checker:active span.checked, 
+div.checker.active span.checked {
+  background-position: -95px -260px;
+}
+
+div.checker.focus span.checked,
+div.checker:hover span.checked {
+  background-position: -114px -260px;
+}
+
+div.checker.focus:active span.checked,
+div.checker:hover:active span.checked,
+div.checker.active:hover span.checked,
+div.checker.active.focus span.checked {
+  background-position: -133px -260px;
+}
+
+div.checker.disabled span,
+div.checker.disabled:active span,
+div.checker.disabled.active span {
+  background-position: -152px -260px;
+}
+
+div.checker.disabled span.checked,
+div.checker.disabled:active span.checked,
+div.checker.disabled.active span.checked {
+  background-position: -171px -260px;
 }

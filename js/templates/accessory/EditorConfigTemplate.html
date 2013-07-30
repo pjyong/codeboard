@@ -1,4 +1,6 @@
+
 <span class="selector_options">
+<div class="left">
 Theme:<select class="local_theme">
 <option value="default" <%=(editorTheme == 'default') ? "selected": ''%>>Default</option>
 <option value="blackboard" <%=(editorTheme == 'blackboard') ? "selected": ''%>>Blackboard</option>
@@ -6,7 +8,7 @@ Theme:<select class="local_theme">
 <option value="elegant" <%=(editorTheme == 'elegant') ? "selected": ''%>>Elegant</option>
 <option value="midnight" <%=(editorTheme == 'midnight') ? "selected": ''%>>Midnight</option>
 </select>
-&nbsp;
+&nbsp;&nbsp;
 Language:
 <select class="code_form_language">
     <% _.each(languages, function(language){%>
@@ -17,5 +19,9 @@ Language:
     <% })%>
 </select>
 &nbsp;
-<button id="submit_e_config">Setting as default</button>
+</div>
+<div class="right">
+<button class="btn" id="submit_e_config" data-loading-text="Saving...">Setting as default</button>
+</div>
+<div class="clear"></div>
 </span>

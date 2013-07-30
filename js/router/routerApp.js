@@ -24,7 +24,6 @@ define([
             code.fetch({
                 success: function(code, response, options){
                     dispatcher.trigger('page:viewCode', code, active);
-
                 }
             });
         },
