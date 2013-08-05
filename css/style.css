@@ -47,7 +47,7 @@ color: white;
 }
 
 #main_nav li a:hover{
-    background:rgba(0,0,0,0.15);
+    color:white;
 }
 #main_nav li a.live:hover{
     font-weight: bold;
@@ -82,7 +82,7 @@ margin-right: 5px;
 #all_year_buttons{
     margin:0px 0px 10px;
 }
-.button_span{
+/*.button_span{
     display:inline-block;
     background: #f3f3f3;
     color: #aaa;
@@ -94,14 +94,20 @@ margin-right: 5px;
 .button_span a{
     text-decoration: none;
     color:#24c;
-}
-.current_button_span{
+}*/
+/*.current_button_span{
     background: #444;
     border-color: #444;
     
 }
+*/
 .current_button_span a{
-    color: white;
+    outline: 0 none;
+    background-color: #E6E6E6;
+    background-position: 0 -15px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-position 0.1s linear 0s;
 }
 
 .code_preview{

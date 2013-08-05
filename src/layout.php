@@ -14,6 +14,8 @@
   <title><?php echo 'CodeBoard'; ?></title>
 </head>
 <body>
+<div class="container-fluid">
+  <div class="row-fluid">
 <div id="header">
             <div class="region">
                 <h1 id="website_logo"><a href="/">Welcome to CodeBoard</a></h1>
@@ -72,5 +74,7 @@
 <input type="hidden" id="beginDate" value="<?php echo $beginDate; ?>" />
 <input type="hidden" id="endDate" value="<?php echo $endDate; ?>" />  
 <script data-main="/js/bootstrap.js" src="/js/libs/require.js"></script>
+</div>
+</div>
 </body>
 </html>

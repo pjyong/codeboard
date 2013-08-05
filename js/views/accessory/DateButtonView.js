@@ -9,10 +9,10 @@ define([
 
         tagName: 'span',
 
-        className: 'button_span',
+        className: 'button_view',
 
         events: {
-            'click a': 'toggleCurrent',
+            'click a[]': 'toggleCurrent',
         },
         
         initialize: function(){
@@ -23,7 +23,7 @@ define([
         },
 
         render: function(){
-            this.$el.toggleClass('current_button_span', this.model.get('current'));
+            this.$el.toggleClass('current_button_view', this.model.get('current'));
             var compiledTemplate = _.template(DateButtonTemplate, this.model.toJSON());
             this.$el.html(compiledTemplate);
 
@@ -33,18 +33,21 @@ define([
         // change the property of model
         toggleCurrent: function(e){
             e.preventDefault();
-            this.model.toggleCurrent();
+            // if(!$(e.currentTarget).hasClass('disabled')){
+                this.model.toggleCurrent();
 
-            var y = this.model.get('year');
-            // trigger the list code view update
-            // pass Date Paramter
-            var m = this.model.collection.getHighlightDate(this.model);
-            // console.log(m.get('year') + '-' + m.get('month'));
-            dispatcher.trigger('view:updatelistcodes', {date: m.get('year') + '-' + m.get('month')})
+                var y = this.model.get('year');
+                // trigger the list code view update
+                // pass Date Paramter
+                var m = this.model.collection.getHighlightDate(this.model);
+                // console.log(m.get('year') + '-' + m.get('month'));
+                dispatcher.trigger('view:updatelistcodes', {date: m.get('year') + '-' + m.get('month')})
 
-            var router = new Router();
-            router.navigate(y + '/' + m.get('month'));
-            return this;
+                var router = new Router();
+                router.navigate(y + '/' + m.get('month'));
+                return this;
+            // }
+            // return;
         },
     });
  

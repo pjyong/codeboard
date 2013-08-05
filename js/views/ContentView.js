@@ -50,10 +50,7 @@ define([
             helppage: HelpPageView
         },
 
-        
         initialize: function(){
-            // var dispatcher = new Dispatcher();
-
             // bind the context 
             _.bindAll(this, 'render', 'delayRender', 'addChildView', 'resetChildViews', 'renderChildViews', 
                 'showCodes', 'addCode', 'viewCode', 'showTools', 'showHelp', 'showAbout');
@@ -69,17 +66,11 @@ define([
             dispatcher.on('page:viewCode', this.viewCode);
 
             dispatcher.on('view:rendercontentview', this.delayRender);
-            // load default view
-            // this.resetChildViews(['index']).addChildView('index', true);
-
         },
-
-
 
         render: function(){
             // do something to render self
             // console.log(this._rangeOfViews);
-            // 
             this.renderChildViews();
             dispatcher.trigger('loading:end');
         },
@@ -117,7 +108,6 @@ define([
                   
             }
             
-
             return this;
         },
 
@@ -133,20 +123,6 @@ define([
             // empty data
             this._rangeOfViews = _.isArray(views) ? views : [];
             this._delayRenderSignals = {};
-
-            // var that = this;
-            // views = !_.isUndefined(views) ? views : null;
-            // if(null !== views){
-            //     _.each(that._childViews, function(instance, view){
-            //         if(-1 === _.indexOf(views, view)){
-            //             // destroy view
-            //             instance.destroy();
-            //             // remove reference
-            //             delete (that._childViews)[view];
-
-            //         }
-            //     });
-            // }
 
             return this;
         },
@@ -187,8 +163,6 @@ define([
             // dispatcher.trigger('load:editor', {value: codeModel.get('fragment'), id:codeId, activeStr: activeStr, mode:codeModel.get('language'), readOnly: 'nocursor', el: '#code_mirror_detail', viewObj:this});            
             this._childViews.code.addCodeMirror({activeStr: activeStr});
         },
-
-        
 
         showCodes: function(options){
             options || (options = {});
@@ -231,6 +205,7 @@ define([
             this.addChildView('toolpage').render();
 
         },
+
         showAbout: function(){
             var router = new Router();
             router.navigate('about');
@@ -238,16 +213,6 @@ define([
             this.addChildView('aboutpage').render();
 
         },
-
-        // getCodesByDate: function(year, month){
-        //     alert(123);
-        //     month = null === month ? 1 : parseInt(month);
-        //     year = parseInt(year);
-        //     this.resetTempChildViews(['datebuttonlist', 'codelist']);
-        //     this.addChildView('datebuttonlist', true, {year: year, month: month});
-        //     this.addChildView('codelist', false).render();  
-        // },
-
     });
 
     return contentView;
