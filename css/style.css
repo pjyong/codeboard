@@ -8,6 +8,10 @@ body{
     font-size:14px;
 }
 
+body .container-fluid{
+    padding:0px;
+}
+
 #header{
     background: #243E5C url(../images/blue_noise.png);
     box-shadow: 0px 3px 5px #777;
@@ -67,7 +71,7 @@ color: white;
     padding-bottom:0px;
 }
 
-#code_list_header input[type=text] {
+/*#code_list_header input[type=text] {
 border-radius: 20px;
 width: 150px;
 border: 1px solid #ddd;
@@ -76,7 +80,7 @@ font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
 font-size: 13px !important;
 padding: 2px 5px;
 margin-right: 5px;
-}
+}*/
 .content_title{margin:0px;}
 
 #all_year_buttons{
@@ -185,7 +189,7 @@ color: #333;
     display: inline-block;
     text-align: center;
 }
-.tools .tool label {
+/*.tools .tool label {
     color:#999;
     position: absolute;
     top: -25px;
@@ -196,7 +200,7 @@ color: #333;
     display: none;
     font-size: 0.7em;
     display: none;
-}
+}*/
 .fullscreen_div{
     float:right;
     margin-right:-10px;
@@ -227,10 +231,6 @@ color: #333;
     width:16px;
     margin:0px;
 }
-.code_preview .tools .tool label{
-    top:-22px;
-    left: -17px;
-}
 .code_preview .tool img{
     width:16px;
     height:16px;
@@ -246,6 +246,13 @@ color: #333;
 }
 .code_preview .tools .tool{
 
+}
+.tool a, .sizer{
+    opacity: 0.7;
+    display: inline-block;
+}
+.tool a:hover, .sizer:hover{
+    opacity: 1;
 }
 
 /*code form*/
@@ -489,4 +496,12 @@ div.checker.disabled span.checked,
 div.checker.disabled:active span.checked,
 div.checker.disabled.active span.checked {
   background-position: -171px -260px;
+}
+
+
+
+
+.fontoptions{
+text-align:center;
+padding:5px 0px;
 }

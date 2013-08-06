@@ -9,8 +9,6 @@ define([
     var codeToolView = Backbone.View.extend({
 
         events: {
-            'mouseover .tool': 'showLabel',
-            'mouseout .tool': 'hideLabel',
             'click .reboard_button>a': 'reboardCode',
         },
 
@@ -24,22 +22,8 @@ define([
         render: function(){
             var compiledTemplate = _.template(CodeToolTemplate, this.model.toJSON());
             this.$el.html(compiledTemplate);
-
+            this.$el.find('.tool a').tooltip();
             this.delegateEvents();
-            return this;
-        },
-
-        showLabel: function(e){
-            var currentObj = $(e.currentTarget);
-            currentObj.find('label').show();
-
-            return this;
-        },
-
-        hideLabel: function(e){
-            var currentObj = $(e.currentTarget);
-            currentObj.find('label').hide();
-
             return this;
         },
 

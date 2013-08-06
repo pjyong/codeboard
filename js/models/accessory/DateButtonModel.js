@@ -4,6 +4,35 @@ define([
 	'backbone',
     'router/dispatcherEvent'
 ], function($, _, Backbone, dispatcher){
+
+    function getMonthLabel(month){
+        if(1 === month){
+            return 'Jan';
+        }else if(2 === month){
+            return 'Feb';
+        }else if(3 === month){
+            return 'Mar';
+        }else if(4 === month){
+            return 'Apr';
+        }else if(5 === month){
+            return 'May';
+        }else if(6 === month){
+            return 'Jun';
+        }else if(7 === month){
+            return 'Jul';
+        }else if(8 === month){
+            return 'Aug';
+        }else if(9 === month){
+            return 'Sep';
+        }else if(10 === month){
+            return 'Oct';
+        }else if(11 === month){
+            return 'Nov';
+        }else{
+            return 'Dec';
+        }
+    }
+
 	var dateButtonModel = Backbone.Model.extend({
 
     	defaults: {
@@ -11,7 +40,7 @@ define([
             month: '',
             label: '',
             status: true,
-            current: false
+            current: false,
         },
 
         initialize: function(){
@@ -21,7 +50,7 @@ define([
             if('' === this.get('month')){
                 label = this.get('year');
             }else{
-                label = this.get('month');
+                label = getMonthLabel(parseInt(this.get('month')));
             }
             this.set({label: label});
 

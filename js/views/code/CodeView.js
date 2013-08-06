@@ -39,6 +39,7 @@ define([
             var compiledTemplate = _.template(CodeTemplate, this.model.toJSON());
             this.$el.html(compiledTemplate);
             this.$('span.code_created').timeago();
+            this.$('.sizer').tooltip();
             
             this.$('.code_body').prepend(this._childViews.fontSetting.$el);
 

@@ -12,7 +12,7 @@ define([
         className: 'button_view',
 
         events: {
-            'click a[]': 'toggleCurrent',
+            'click a': 'toggleCurrent',
         },
         
         initialize: function(){
@@ -33,7 +33,7 @@ define([
         // change the property of model
         toggleCurrent: function(e){
             e.preventDefault();
-            // if(!$(e.currentTarget).hasClass('disabled')){
+            if(!$(e.currentTarget).hasClass('disabled')){
                 this.model.toggleCurrent();
 
                 var y = this.model.get('year');
@@ -46,8 +46,8 @@ define([
                 var router = new Router();
                 router.navigate(y + '/' + m.get('month'));
                 return this;
-            // }
-            // return;
+            }
+            return;
         },
     });
  

@@ -63,11 +63,17 @@ class CodeRoute implements ControllerProviderInterface
 
 		});
 
-        $controllers->get("code/{id}/text", function(Application $app, $id){
+        $controllers->get("code/text/{id}.txt", function(Application $app, $id){
             $code = $app['model.code']->select($id);
 
-            require ROOT_PATH . '/src/text.php';
-            return '';
+            // ob_start();
+            // require ROOT_PATH . '/src/text.php';
+            // $content
+            // ob_end_clean();
+            $response = new Response();
+            $response->setContent($code['fragment']);
+            $response->headers->set('Content-Type', 'text/plain');
+            return $response;
         });
 
         $controllers->get("code/{id}/download", function(Application $app, $id){

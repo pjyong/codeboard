@@ -2,9 +2,9 @@
 		<div class="code_p_header">
             <div class="code_p_header_l">
 			<a href="#code/<%=id%>" data-id="<%=id%>" class="view_link">view all</a>
-            <label class="date">
+            <span class="date">
                 <span class="code_created" title="<%=created%>"></span>
-            </label>
+            </span>
             </div>
             <div class="tools">
 
@@ -13,8 +13,8 @@
         <div class="clear"></div>
 		</div>
 		<div class="code_p_body">
-		<pre>
-		<%=fragment.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/^(.{100}[^\s]*).*/, "$1")%>
-		</pre>
+		
+		<%=fragment.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").substring(0, 415)%>
+		
 		<!-- fragment.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/^(.{100}[^\s]*).*/, "$1") -->
 		</div>
