@@ -4,7 +4,8 @@ define([
     'backbone',
     'router/dispatcherEvent',
     'models/code/CodeModel',
-], function($, _, Backbone, dispatcher, CodeModel){
+    'views/MainMenuView',
+], function($, _, Backbone, dispatcher, CodeModel, MainMenuView){
     var AppRouter = Backbone.Router.extend({
         
         routes: {
@@ -14,8 +15,11 @@ define([
             ":year(/:month)": "getCodesByDate",
             "tool": "showTools",
             "about": "showAbout",
-            "help": "showHelp",
-            '*actions': 'addCode',
+            "help": "showHelp"
+        },
+
+        initialize: function(){
+            this.mainMenu = new MainMenuView();
         },
 
         selectCode: function(id, active){
@@ -29,25 +33,32 @@ define([
         },
 
         showCodes: function(){
+            this.mainMenu.setLiveNav('codes');
             dispatcher.trigger('page:showCodes');
         },
 
         addCode: function(){
+            this.mainMenu.setLiveNav('board');
             dispatcher.trigger('page:addCode');
         },
 
         showTools: function(){
+            alert(123);
+            this.mainMenu.setLiveNav('tool');
             dispatcher.trigger('page:showTools');
         },
         showHelp: function(){
             // alert(45);
+            this.mainMenu.setLiveNav('help');
             dispatcher.trigger('page:showHelp');
         },
         showAbout: function(){
+            this.mainMenu.setLiveNav('about');
             dispatcher.trigger('page:showAbout');
         },
 
         getCodesByDate: function(year, month){
+            this.mainMenu.setLiveNav('codes');
             dispatcher.trigger('page:showCodes', {year:year, month:month});
         },
 

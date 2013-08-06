@@ -35,6 +35,7 @@ define([
         },
 
         render: function(){
+    
 
             var compiledTemplate = _.template(CodeTemplate, this.model.toJSON());
             this.$el.html(compiledTemplate);

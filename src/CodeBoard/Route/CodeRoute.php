@@ -76,6 +76,19 @@ class CodeRoute implements ControllerProviderInterface
             return $response;
         });
 
+         $controllers->get("code/javascript/{id}.js", function(Application $app, $id){
+            $code = $app['model.code']->select($id);
+
+            // ob_start();
+            // require ROOT_PATH . '/src/text.php';
+            // $content
+            // ob_end_clean();
+            $response = new Response();
+            $response->setContent($code['fragment']);
+            $response->headers->set('Content-Type', 'application/x-javascript');
+            return $response;
+        });
+
         $controllers->get("code/{id}/download", function(Application $app, $id){
             $code = $app['model.code']->select($id);
 

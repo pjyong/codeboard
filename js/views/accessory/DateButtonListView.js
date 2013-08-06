@@ -67,8 +67,8 @@ define([
 
 
             // get data from html hidden tag
-            var beginDate = new Date($('#beginDate').val() + '-01');
-            var endDate = new Date($('#endDate').val() + '-01');
+            var beginDate = new Date($('#beginDate').val() + '-02');
+            var endDate = new Date($('#endDate').val() + '-02');
             
             var beginMonth = beginDate.getMonth() + 2;
             var endMonth = endDate.getMonth() + 2;

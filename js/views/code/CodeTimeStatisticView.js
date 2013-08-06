@@ -21,7 +21,7 @@ define([
             this.render();
         },
         render: function(){
-            var compiledTemplate = _.template(CodeTimeStatisticTemplate, this.model.toJSON());
+            var compiledTemplate = _.template(CodeTimeStatisticTemplate, _.extend(this.model.toJSON(), {isNew: this.model.isNew()}));
         
             this.$el.html(compiledTemplate);
             return this;

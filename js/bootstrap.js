@@ -86,7 +86,10 @@ require([
     });
     // load statictis of codes
     var codeTimeStatisticModel = new CodeTimeStatisticModel();
-    codeTimeStatisticModel.fetch();
+    codeTimeStatisticModel.fetch({success: function(){
+        // set id make it as existing
+        codeTimeStatisticModel.set('id', 1);
+    }});
 
     // load rooted views
     var contentView = new ContentView({codeTimeStatisticModel: codeTimeStatisticModel});

@@ -5,6 +5,7 @@ define([
 ], function($, _, Backbone){
     var dispatcher = Backbone.Events;
     
+
     // public event
     dispatcher.on('loading:start', function(){
         // alert(123);

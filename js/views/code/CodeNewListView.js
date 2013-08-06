@@ -22,6 +22,7 @@ define([
             _.bindAll(this, 'addCodeView');
             var that = this;
             this.collection = new CodeCollection();
+            // console.log(this.collection);
             // get local codes
             this.websiteConfig = new ConfigCollection();
             this.websiteConfig.fetch({
@@ -30,10 +31,11 @@ define([
                     that.collection.add(codes);
                 }
             });
-            this.codeTimeStatisticModel = this.options.codeTimeStatisticModel;
+            // this.codeTimeStatisticModel = this.options.codeTimeStatisticModel;
 
             // when submit new code, it will goes the list view
             dispatcher.on('view:addonecode', this.addCodeView);
+
 
             this.render();
         },
@@ -43,6 +45,7 @@ define([
             this.collection.each(function(model){
                 var code = new CodePreviewView({model: model})
                 that.$el.prepend(code.$el);
+                // that.addCodeView(model);
             });
             
             
@@ -56,8 +59,7 @@ define([
             // add new codeId into localstorage
             this.websiteConfig.addNewCode(model);
             // plus one for statictis
-            this.codeTimeStatisticModel.addOne();
-            console.log(this.codeTimeStatisticModel);
+            // this.codeTimeStatisticModel.addOne();
 
             // make some effect
             var newDiv = $('<div class="new_code_preview"></div>').hide();

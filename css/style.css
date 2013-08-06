@@ -105,11 +105,11 @@ margin-right: 5px;
     
 }
 */
-.current_button_span a{
+.current_button_view a{
     outline: 0 none;
     background-color: #E6E6E6;
     background-position: 0 -15px;
-    color: #333333;
+    color: black;
     text-decoration: none;
     transition: background-position 0.1s linear 0s;
 }
@@ -344,14 +344,18 @@ font-size: 16px;
 #sidebar{
     font-size: 12px;
 }
-
+#sidebar #code_time_statistic{
+    margin-top:0px;
+}
 .block h2{
     padding: 3px 5px;
-    margin: 1em -5px 0.3em;
+    margin: 0px;
     color: #111;
     font-size:14px;
     background: #C6C3B6;
+    line-height: 20px;
 }
+.block .content{padding:0px 5px;}
 
 .statistic_label{
     float:left;
@@ -363,6 +367,8 @@ font-size: 16px;
     float:right;
     width:48%;
     text-align: right;
+    color:black;
+    font-weight:bold;
 }
 
 /**

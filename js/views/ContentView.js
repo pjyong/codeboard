@@ -168,8 +168,9 @@ define([
             options || (options = {});
             if(_.isUndefined(options.year)){
                 // navigate the current url
-                var router = new Router();
-                router.navigate('codes');
+                // var router = new Router();
+                // router.navigate('codes');
+                
             }
             // only contain two child views
             this.resetChildViews(['codelistheader', 'datebuttonlist', 'codelist']);
@@ -179,8 +180,8 @@ define([
         addCode: function(options){
             options = options || {};
             _.extend(options, {codeTimeStatisticModel: this.codeTimeStatisticModel});
-            var router = new Router();
-            router.navigate('board');
+            // var router = new Router();
+            // router.navigate('board');
             // if code form is existing, render the init status
             if(!_.isUndefined(this._childViews.codeform) && !_.isEmpty(options)){
                 this._childViews.codeform.reboard(options);
@@ -191,24 +192,24 @@ define([
 
         showHelp: function(){
             // alert(123);
-            var router = new Router();
-            router.navigate('help');
+            // var router = new Router();
+            // router.navigate('help');
             this.resetChildViews(['helppage']);
             this.addChildView('helppage').render();
       
         },
 
         showTools: function(){
-            var router = new Router();
-            router.navigate('tool');
+            // var router = new Router();
+            // router.navigate('tool');
             this.resetChildViews(['toolpage']);
             this.addChildView('toolpage').render();
 
         },
 
         showAbout: function(){
-            var router = new Router();
-            router.navigate('about');
+            // var router = new Router();
+            // router.navigate('about');
             this.resetChildViews(['aboutpage']);
             this.addChildView('aboutpage').render();
 

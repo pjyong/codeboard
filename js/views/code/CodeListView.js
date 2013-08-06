@@ -118,6 +118,13 @@ define([
             var codePreviewView = new CodePreviewView({model: model});
             this.$el.append(codePreviewView.$el);
         },
+
+        // undelegateEvents: function(){
+        //     this.dispatcher.off('view:loadmorecodes');
+        //     this.dispatcher.off('view:updatelistcodes');
+        //     // call parent functions
+        //     Backbone.View.prototype.undelegateEvents.apply(this);
+        // },
     });
 
     return codeListView;
