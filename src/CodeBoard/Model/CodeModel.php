@@ -58,6 +58,26 @@ class CodeModel extends AbstractBaseModel{
 		return $codes;	
 	}
 
+	public function returnCountByKeyCode($keycode){
+		$statement = $this->db->prepare("SELECT count(*) AS total FROM code WHERE code.key= :keycode");
+		$statement->bindValue('keycode', $keycode, 'string');
+		$statement->execute();
+		$count = $statement->fetch();
+
+		return $count['total'];	
+	}
+
+	public function selectByKeyCode($keycode){
+		$statement = $this->db->prepare("SELECT * FROM code");
+		$statement->execute();
+		$codes = $statement->fetchAll();
+
+		return $codes;	
+	}
+	public function selectByKeyWords(){
+
+	}
+
 	/**
 	*	inherit
 	*/

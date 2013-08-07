@@ -9,9 +9,10 @@ define([
 	'text!templates/code/CodeFormTemplate.html',
     'views/accessory/CodeMirrorView',
     'views/accessory/EditorConfigView',
+    'models/accessory/SearchModel'
 ], function($, _, Backbone, dispatcher, CodeModel, 
     CodeCollection, LanguageCollection, CodeFormTemplate, 
-    CodeMirrorView, EditorConfigView
+    CodeMirrorView, EditorConfigView, SearchModel
     ){
 	var codeFormView = Backbone.View.extend({
 
@@ -19,11 +20,12 @@ define([
         id: 'code_form',
         events: {
             'click .code_form_submit': 'submitForm',
-            
+            'blur #code_key': 'checkKey'
         },
         
 		initialize: function(){
             this._childViews = {};
+            _.bindAll(this, 'checkKey');
             this.listenTo(dispatcher, 'view:rendercontentview', this.addEditor);
             this.listenTo(dispatcher, 'editor:enterfullscreen', this.enterFullscreen);
             this.listenTo(dispatcher, 'editor:quitfullscreen', this.quitFullscreen);
@@ -102,6 +104,38 @@ define([
                 }
             });
             
+        },
+
+        checkKey: function(e){
+            var t = $(e.currentTarget);
+
+            var that = this;
+            var keyCode = t.val();
+            var searchModel = new SearchModel({searchType: 'keycodecount', searchKeywords: keyCode});
+            searchModel.fetch({
+                success: function(model, response, options){
+                    // 
+                    if(0 !== parseInt(response)){
+                        // 
+                        bootbox.alert('Someone has already used this key, please use another special one.', function(){
+            
+                        });
+                        t.attr('disabled', false);
+                        // remove the loading icon
+                        t.siblings('img').remove();
+                    }else{
+                        // alert('');
+                        bootbox.alert('Try to remember this key that index your history codes in the future.');
+                        t.attr('disabled', false).siblings('img').remove();
+                        that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
+                        // keep this key into local database
+
+                    }
+                }
+            });
+            // load loading icon after the text box and disable the submit button
+            t.attr('disabled', true).after('<img src="/images/loading_icon.gif" />');
+            this.$el.find('.code_form_submit').addClass('disabled').attr('disabled', true);
         },
 
         reboard: function(options){

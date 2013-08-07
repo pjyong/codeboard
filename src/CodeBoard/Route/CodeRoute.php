@@ -63,6 +63,20 @@ class CodeRoute implements ControllerProviderInterface
 
 		});
 
+        // search
+        $controllers->get("search/{searchType}/{searchKeywords}", function(Application $app, $searchType, $searchKeywords){
+            if($searchType == 'keycodecount'){
+                // get count from keycode
+                $count = $app['model.code']->returnCountByKeyCode($searchKeywords);
+                return $app->json($count);
+            }else if($searchType == 'keycode'){
+
+            }else{
+
+            }
+
+        });
+
         $controllers->get("code/text/{id}.txt", function(Application $app, $id){
             $code = $app['model.code']->select($id);
 

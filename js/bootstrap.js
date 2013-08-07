@@ -8,6 +8,7 @@ require.config({
         paginator: 'libs/backbone.paginator',
         text: 'libs/text',
         'bootstrap.lib': 'libs/bootstrap.min',
+        'bootbox.lib': 'libs/bootbox',
     },
     
     shim: {
@@ -19,6 +20,9 @@ require.config({
         },
         'bootstrap.lib': {
             deps: ['jquery']
+        },
+        'bootbox.lib': {
+            deps: ['bootstrap.lib']
         },
         backbone: {
             deps: ['underscore', 'jquery'],
@@ -36,7 +40,8 @@ require([
     'models/code/CodeTimeStatisticModel',
     'router/routerApp',
     'libs/jquery.timeago',
-    'bootstrap.lib'
+    'bootstrap.lib',
+    'bootbox.lib'
  ], function(dispatcher, ContentView, MainMenuView, SidebarView, CodeTimeStatisticModel, Router){
     require(['libs/codemirror'], function(){
         require([
