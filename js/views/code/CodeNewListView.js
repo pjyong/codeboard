@@ -27,7 +27,7 @@ define([
             this.websiteConfig = new ConfigCollection();
             this.websiteConfig.fetch({
                 success: function(collection){
-                    var codes = collection.fetchLocalCodes(that.collection);
+                    var codes = collection.fetchLocalCodes();
                     that.collection.add(codes);
                 }
             });
@@ -42,8 +42,9 @@ define([
 
         render: function(){
             var that = this;
+            console.log(this.collection);
             this.collection.each(function(model){
-                var code = new CodePreviewView({model: model})
+                var code = new CodePreviewView({model: model});
                 that.$el.prepend(code.$el);
                 // that.addCodeView(model);
             });

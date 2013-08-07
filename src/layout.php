@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/codemirror.css" />
   <link rel="stylesheet" href="/css/blackboard.css" />
-  <link rel="stylesheet" href="/css/eclipse.css" />
-  <link rel="stylesheet" href="/css/elegant.css" />
   <link rel="stylesheet" href="/css/midnight.css" />
 
   <title><?php echo 'CodeBoard'; ?></title>

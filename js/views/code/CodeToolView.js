@@ -23,7 +23,7 @@ define([
         initialize: function(){
             _.bindAll(this, 'render', 'reboardCode');
             this.model = this.options.model;
-            
+            this.listenTo(this.model, 'change', this.render);
             this.render();
         },
 

@@ -18,7 +18,6 @@ define([
         // el : '#content',
         id: 'code_form',
         events: {
-            'click .code_form_status': 'toggleStatus',
             'click .code_form_submit': 'submitForm',
             
         },
@@ -39,7 +38,7 @@ define([
             var compiledTemplate = _.template(CodeFormTemplate, {});
             this.$el.html(compiledTemplate);
             
-
+            this.$('.form_tooltip').tooltip();
             this.$('#editor_configs').html(this._childViews.editorConfig.$el);
             
             return this;
