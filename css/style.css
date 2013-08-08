@@ -855,3 +855,15 @@ https://github.com/ghinda/css-toggle-switch
     }
     
 }
+
+
+
+
+
+#search_info{display:none;left:auto;width:120px;position:absolute;right:0px;top:30px;}
+#search_info .arrow{left:56%;}
+#search_info .btn{
+    padding:0px;text-decoration: none;color:#333;
+}
+
+#search_info .btn:hover{color: black;}
