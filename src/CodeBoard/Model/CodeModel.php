@@ -59,7 +59,7 @@ class CodeModel extends AbstractBaseModel{
 	}
 
 	public function returnCountByKeyCode($keycode){
-		$statement = $this->db->prepare("SELECT count(*) AS total FROM code WHERE code.key= :keycode");
+		$statement = $this->db->prepare("SELECT count(*) AS total FROM code WHERE code.keycode= :keycode");
 		$statement->bindValue('keycode', $keycode, 'string');
 		$statement->execute();
 		$count = $statement->fetch();

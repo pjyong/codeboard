@@ -5,13 +5,14 @@ define([
     'router/dispatcherEvent',
     'models/code/CodeModel',
 	'collections/code/CodeCollection',
+    'collections/accessory/ConfigCollection',
     'collections/code/LanguageCollection',
 	'text!templates/code/CodeFormTemplate.html',
     'views/accessory/CodeMirrorView',
     'views/accessory/EditorConfigView',
     'models/accessory/SearchModel'
 ], function($, _, Backbone, dispatcher, CodeModel, 
-    CodeCollection, LanguageCollection, CodeFormTemplate, 
+    CodeCollection, ConfigCollection, LanguageCollection, CodeFormTemplate, 
     CodeMirrorView, EditorConfigView, SearchModel
     ){
 	var codeFormView = Backbone.View.extend({
@@ -29,15 +30,27 @@ define([
             this.listenTo(dispatcher, 'view:rendercontentview', this.addEditor);
             this.listenTo(dispatcher, 'editor:enterfullscreen', this.enterFullscreen);
             this.listenTo(dispatcher, 'editor:quitfullscreen', this.quitFullscreen);
+
+            // get local keycode
+            this.websiteConfig = new ConfigCollection();
+            this.websiteConfig.fetch();
+
             // load child view
-            this._childViews.editorConfig = new EditorConfigView({language: this.options.language});
+            this._childViews.editorConfig = new EditorConfigView({language: this.options.language, websiteConfig: this.websiteConfig});
+            
+
+
             this.dispatcher = dispatcher;
             this.render();
         },
 
         render: function(){
-
-            var compiledTemplate = _.template(CodeFormTemplate, {});
+            var keycode = '';
+            var m = this.websiteConfig.findWhere({option:'keycode'});
+            if(!_.isUndefined(m)){
+                keycode = m.get('value');
+            }
+            var compiledTemplate = _.template(CodeFormTemplate, {keycode: keycode});
             this.$el.html(compiledTemplate);
             
             this.$('.form_tooltip').tooltip();
@@ -92,9 +105,11 @@ define([
                 language: this.$('.code_form_language').val(),
                 // fragment: this.$('.code_form_fragment').val(),
                 fragment: this._childViews.codemirror.editor.getValue(),
-                status: this.$('.code_form_status').find('input').val()
+                status: this.$('.code_form_status').find('input').val(),
+                keycode: (this.$('#code_key').val() === '') ? 'anonym' : $('#code_key').val()
             });
             var that = this;
+
             code.save({}, {
                 success: function(model, response, options){
                     model.set({id: response});
@@ -111,6 +126,11 @@ define([
 
             var that = this;
             var keyCode = t.val();
+            if(keyCode === 'anonym' || keyCode === ''){
+                // enable submit button
+                that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
+                return;
+            }
             var searchModel = new SearchModel({searchType: 'keycodecount', searchKeywords: keyCode});
             searchModel.fetch({
                 success: function(model, response, options){
@@ -129,6 +149,7 @@ define([
                         t.attr('disabled', false).siblings('img').remove();
                         that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
                         // keep this key into local database
+                        that.websiteConfig.updateConfig('keycode', keyCode);
 
                     }
                 }

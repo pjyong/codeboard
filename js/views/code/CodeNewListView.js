@@ -42,7 +42,6 @@ define([
 
         render: function(){
             var that = this;
-            console.log(this.collection);
             this.collection.each(function(model){
                 var code = new CodePreviewView({model: model});
                 that.$el.prepend(code.$el);

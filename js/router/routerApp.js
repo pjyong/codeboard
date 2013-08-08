@@ -9,13 +9,14 @@ define([
     var AppRouter = Backbone.Router.extend({
         
         routes: {
+            "tool": "showTools",
+            "about": "showAbout",
+            "help": "showHelp",
             'codes': 'showCodes',
             'code/:id(/:active)': 'selectCode',
             'board': 'addCode',
             ":year(/:month)": "getCodesByDate",
-            "tool": "showTools",
-            "about": "showAbout",
-            "help": "showHelp"
+            '': 'addCode'
         },
 
         initialize: function(){
@@ -43,7 +44,7 @@ define([
         },
 
         showTools: function(){
-            alert(123);
+            // alert(123);
             this.mainMenu.setLiveNav('tool');
             dispatcher.trigger('page:showTools');
         },

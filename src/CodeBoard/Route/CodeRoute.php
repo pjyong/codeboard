@@ -32,6 +32,7 @@ class CodeRoute implements ControllerProviderInterface
             $data['status'] = $requestData->status;
             // $data['created'] = (new \DateTime())->format("Y-m-d\TH:i:s");
             $data['created'] = $requestData->created;
+            $data['keycode'] = $requestData->keycode;
             // insert code
             $code = $app['model.code']->insert($data);
 	        

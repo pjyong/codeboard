@@ -26,8 +26,9 @@ define([
             // listen to the editor is loaded
             // this.listenTo(dispatcher, 'editor:changetheme2', this.returnChangeTheme);
             // get website config
-            this.websiteConfig = new ConfigCollection();
-            this.websiteConfig.fetch();
+            // this.websiteConfig = new ConfigCollection();
+            // this.websiteConfig.fetch();
+            this.websiteConfig = this.options.websiteConfig;
 
             var that = this;
             this.collection = new LanguageCollection();

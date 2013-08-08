@@ -7,7 +7,8 @@ define([
 		defaults: {
 			language: '',
 			status: 0,
-			fragment: ''
+			fragment: '',
+            keycode: ''
 		},
 
         initialize: function(){
