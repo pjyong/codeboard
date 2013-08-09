@@ -4,15 +4,18 @@ define([
     'backbone',
     'router/dispatcherEvent',
     'text!templates/code/CodeListHeaderTemplate.html',
-], function($, _, Backbone, dispatcher, CodeListHeaderTemplate){
+    'models/accessory/SearchModel'
+], function($, _, Backbone, dispatcher, CodeListHeaderTemplate, SearchModel){
     var codeListHeaderView = Backbone.View.extend({
         
         // el : '#content',
         id: 'code_list_header',
         events: {
+            'click .submitSearch': 'startSearch'
         },
         
         initialize: function(){
+            _.bindAll(this, 'startSearch');
             this.render();
         },
         render: function(){
@@ -53,6 +56,18 @@ define([
             });
             return this;
         },
+
+        startSearch: function(){
+            var searchMethod = (this.$el.find('#searchMethod').val() == '1') ? 'keycode' : 'keyword';
+            var txt = this.$el.find('#query').val();
+            var searchModel = new SearchModel({searchType: searchMethod, searchKeywords: txt});
+            searchModel.fetch({
+                success: function(model, response, options){
+                    // 
+                    
+                }
+            });
+        }
     });
     return codeListHeaderView;
 });

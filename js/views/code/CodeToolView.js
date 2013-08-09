@@ -3,9 +3,11 @@ define([
     'underscore',
     'backbone',
     'router/dispatcherEvent',
+    'router/routerApp',
     'models/code/CodeModel',
+    'views/MainMenuView',
     'text!templates/code/CodeToolTemplate.html',
-], function($, _, Backbone, dispatcher, CodeModel, CodeToolTemplate){
+], function($, _, Backbone, dispatcher, Router, CodeModel, MainMenuView, CodeToolTemplate){
 
     function getEmbedCode(id){
         var code = '<script type="text/javascript" src="http://codeboard.org/code/javascript/' + id + '.js"></script>';
@@ -23,6 +25,7 @@ define([
         initialize: function(){
             _.bindAll(this, 'render', 'reboardCode');
             this.model = this.options.model;
+            this.mainMenu = new MainMenuView();
             this.listenTo(this.model, 'change', this.render);
             this.render();
         },
@@ -43,6 +46,10 @@ define([
             // get current code fragment
             var fragment = this.model.get('fragment');
 
+            // set
+            this.mainMenu.setLiveNav('board');
+            var router = new Router();
+            router.navigate('/board', {trigger: false});
             dispatcher.trigger('page:addCode', {fragment: fragment, language:this.model.get('language')});
             
             // trigger the code add form
