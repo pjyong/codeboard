@@ -70,8 +70,8 @@ define([
             var beginDate = new Date($('#beginDate').val() + '-02');
             var endDate = new Date($('#endDate').val() + '-02');
             
-            var beginMonth = beginDate.getMonth() + 2;
-            var endMonth = endDate.getMonth() + 2;
+            var beginMonth = beginDate.getMonth() + 1;
+            var endMonth = endDate.getMonth() + 1;
             
             // init the data
             this.config.beginMonth = beginMonth;

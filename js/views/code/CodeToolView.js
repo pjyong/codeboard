@@ -45,11 +45,10 @@ define([
             e.preventDefault();
             // get current code fragment
             var fragment = this.model.get('fragment');
-
             // set
             this.mainMenu.setLiveNav('board');
             var router = new Router();
-            router.navigate('/board', {trigger: false});
+            router.navigate('board', {trigger: false});
             dispatcher.trigger('page:addCode', {fragment: fragment, language:this.model.get('language')});
             
             // trigger the code add form

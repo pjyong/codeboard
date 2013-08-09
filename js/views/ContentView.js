@@ -183,6 +183,7 @@ define([
             // var router = new Router();
             // router.navigate('board');
             // if code form is existing, render the init status
+            // console.log(!_.isUndefined(this._childViews.codeform));
             if(!_.isUndefined(this._childViews.codeform) && !_.isEmpty(options)){
                 this._childViews.codeform.reboard(options);
             }

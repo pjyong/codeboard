@@ -867,3 +867,13 @@ https://github.com/ghinda/css-toggle-switch
 }
 
 #search_info .btn:hover{color: black;}
+
+#github_checkout .content{
+    background: url(../images/github_48.png) no-repeat;
+    padding-left: 50px;
+}
+#github_checkout .content a{
+    line-height: 22px;
+font-weight: bold;
+color: #333;
+}

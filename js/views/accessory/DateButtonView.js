@@ -44,7 +44,7 @@ define([
                 dispatcher.trigger('view:updatelistcodes', {date: m.get('year') + '-' + m.get('month')})
 
                 var router = new Router();
-                router.navigate('#/' + y + '/' + m.get('month'));
+                router.navigate(y + '/' + m.get('month'), {trigger: false});
                 return this;
             }
             return;

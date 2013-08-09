@@ -18,11 +18,11 @@
             <div class="region">
                 <h1 id="website_logo"><a href="/">Welcome to CodeBoard</a></h1>
                 <ul id="main_nav">
-                    <li><a href="#/codes" class="codes_page">Codes</a></li>
-                    <li><a href="#/board" class="share_page">Board</a></li>
-                    <li><a href="#/tool" class="tools_page">Tools</a></li>
-                    <li><a href="#/help" class="help_page">Help</a></li>
-                    <li><a href="#/about" class="about_page">About</a></li>
+                    <li><a href="#codes" class="codes_page">Codes</a></li>
+                    <li><a href="#board" class="share_page">Board</a></li>
+                    <li><a href="#tool" class="tools_page">Tools</a></li>
+                    <li><a href="#help" class="help_page">Help</a></li>
+                    <li><a href="#about" class="about_page">About</a></li>
                 </ul>
                  
               <div class="clear"></div>   

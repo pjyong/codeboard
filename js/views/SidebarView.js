@@ -4,7 +4,8 @@ define([
     'backbone',
     'router/dispatcherEvent',
     'views/code/CodeTimeStatisticView',
-], function($, _, Backbone, dispatcher, CodeTimeStatisticView){
+    'text!templates/SidebarTemplate.html'
+], function($, _, Backbone, dispatcher, CodeTimeStatisticView, SidebarTemplate){
     var sidebarView = Backbone.View.extend({
         
         el: '#sidebar',
@@ -19,11 +20,12 @@ define([
         render: function(){
 
             // load self
-
+            this.$el.append(SidebarTemplate);
             // load child views
             var codeTimeStatisticView = new CodeTimeStatisticView({model: this.options.codeTimeStatisticModel});
 
-            this.$el.append(codeTimeStatisticView.$el);
+
+            this.$el.prepend(codeTimeStatisticView.$el);
 
 
 
