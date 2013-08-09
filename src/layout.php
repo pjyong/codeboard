@@ -53,7 +53,7 @@
   </p>
   <p class="credit">
     Created by <br>
-    <a href="#">June Peng</a>
+    <a href="http://pjyong.github.com" target="_blank">June Peng</a>
   </p>
   
   <div class="clear"></div>

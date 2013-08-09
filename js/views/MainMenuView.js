@@ -23,7 +23,7 @@ define([
 
         setLiveNav: function(menuName){
             this.$('a').removeClass('live');
-            this.$('a[href="#/'+menuName+'"]').addClass('live');
+            this.$('a[href="#'+menuName+'"]').addClass('live');
         },
 
 

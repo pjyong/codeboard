@@ -16,7 +16,7 @@ define([
             'code/:id(/:active)': 'selectCode',
             'board': 'addCode',
             ":year(/:month)": "getCodesByDate",
-            '': 'addCode'
+            '': 'addCodeForFrontPage'
         },
 
         initialize: function(){
@@ -39,6 +39,12 @@ define([
         },
 
         addCode: function(){
+            this.mainMenu.setLiveNav('board');
+            dispatcher.trigger('page:addCode');
+        },
+
+        addCodeForFrontPage: function(){
+            this.navigate('board', {trigger: false});
             this.mainMenu.setLiveNav('board');
             dispatcher.trigger('page:addCode');
         },
