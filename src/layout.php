@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/jquery.gritter.css" />
   <link rel="stylesheet" href="/css/layout.css" />
@@ -9,7 +10,8 @@
   <link rel="stylesheet" href="/css/codemirror.css" />
   <link rel="stylesheet" href="/css/blackboard.css" />
   <link rel="stylesheet" href="/css/midnight.css" />
-
+-->
+  <link rel="stylesheet" href="/css/compress.css" />
   <title><?php echo 'CodeBoard'; ?></title>
 </head>
 <body>
@@ -63,7 +65,8 @@
   
 <input type="hidden" id="beginDate" value="<?php echo $beginDate; ?>" />
 <input type="hidden" id="endDate" value="<?php echo $endDate; ?>" />  
-<script data-main="/js/bootstrap.js" src="/js/libs/require.js"></script>
+<!-- <script data-main="/js/bootstrap.js" src="/js/libs/require.js"></script> -->
+<script data-main="/js/dist/bootstrap.js" src="/js/dist/libs/require.js"></script>
 </div>
 </div>
 </body>

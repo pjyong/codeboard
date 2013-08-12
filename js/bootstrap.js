@@ -5,10 +5,8 @@ require.config({
         underscore: 'libs/underscore-min',
         backbone: 'libs/backbone-min',
         localStorage: 'libs/backbone.localStorage',
-        paginator: 'libs/backbone.paginator',
         text: 'libs/text',
         'bootstrap.lib': 'libs/bootstrap.min',
-        'bootbox.lib': 'libs/bootbox',
         'jquery.gritter': 'libs/jquery.gritter.min',
     },
     
@@ -22,17 +20,13 @@ require.config({
         'bootstrap.lib': {
             deps: ['jquery']
         },
-        'bootbox.lib': {
-            deps: ['bootstrap.lib']
-        },
         'jquery.gritter': {
             deps: ['jquery']
         },
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
-        },
-        
+        }        
     },
 });
 
@@ -45,27 +39,28 @@ require([
     'router/routerApp',
     'libs/jquery.timeago',
     'bootstrap.lib',
-    'bootbox.lib',
     'jquery.gritter'
  ], function(dispatcher, ContentView, MainMenuView, SidebarView, CodeTimeStatisticModel, Router){
     require(['libs/codemirror'], function(){
         require([
-            'libs/mode/javascript',
-            'libs/mode/php',
-            'libs/mode/sql',
-            'libs/mode/yaml',
-            'libs/mode/xml',
-            'libs/mode/css',
-            'libs/mode/clike',
-            'libs/mode/matchbrackets',
-            'libs/mode/placeholder',
-            'libs/mode/go',
-            'libs/mode/perl',
-            'libs/mode/python',
-            'libs/mode/ruby',
-            'libs/mode/vbscript',
-            'libs/mode/shell',
-            'libs/mode/rst',
+            // 'libs/mode/javascript',
+            // 'libs/mode/php',
+            // 'libs/mode/sql',
+            // 'libs/mode/yaml',
+            // 'libs/mode/xml',
+            // 'libs/mode/css',
+            // 'libs/mode/clike',
+            // 'libs/mode/matchbrackets',
+            // 'libs/mode/placeholder',
+            // 'libs/mode/go',
+            // 'libs/mode/perl',
+            // 'libs/mode/python',
+            // 'libs/mode/ruby',
+            // 'libs/mode/vbscript',
+            // 'libs/mode/shell',
+            // 'libs/mode/rst',
+            'libs/mode/compressmode',
+
         ]);
     });
     

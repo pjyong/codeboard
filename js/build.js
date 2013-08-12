@@ -1,11 +1,11 @@
 ({
     appDir: './',
-    baseUrl: "./js",
+    baseUrl: "./",
     dir: "./dist",
     
     removeCombined: true,
     optimizeCss: 'standard',
-    fileExclusionRegExp: /^build\.js|r\.js|index\.php$/,
+    fileExclusionRegExp: /^build\.js|r\.js|bootstrap\.js$/,
     modules: [
         //First set up the common build layer.
         {
@@ -18,8 +18,9 @@
         underscore: 'libs/underscore-min',
         backbone: 'libs/backbone-min',
         localStorage: 'libs/backbone.localStorage',
-        paginator: 'libs/backbone.paginator',
         text: 'libs/text',
+        'bootstrap.lib': 'libs/bootstrap.min',
+        'jquery.gritter': 'libs/jquery.gritter.min',
     },
     
     shim: {
@@ -29,10 +30,15 @@
         underscore: {
             exports: '_'
         },
+        'bootstrap.lib': {
+            deps: ['jquery']
+        },
+        'jquery.gritter': {
+            deps: ['jquery']
+        },
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
-        },
-        
+        }        
     },
 })
