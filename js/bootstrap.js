@@ -9,6 +9,7 @@ require.config({
         text: 'libs/text',
         'bootstrap.lib': 'libs/bootstrap.min',
         'bootbox.lib': 'libs/bootbox',
+        'jquery.gritter': 'libs/jquery.gritter.min',
     },
     
     shim: {
@@ -23,6 +24,9 @@ require.config({
         },
         'bootbox.lib': {
             deps: ['bootstrap.lib']
+        },
+        'jquery.gritter': {
+            deps: ['jquery']
         },
         backbone: {
             deps: ['underscore', 'jquery'],
@@ -41,7 +45,8 @@ require([
     'router/routerApp',
     'libs/jquery.timeago',
     'bootstrap.lib',
-    'bootbox.lib'
+    'bootbox.lib',
+    'jquery.gritter'
  ], function(dispatcher, ContentView, MainMenuView, SidebarView, CodeTimeStatisticModel, Router){
     require(['libs/codemirror'], function(){
         require([
@@ -54,6 +59,13 @@ require([
             'libs/mode/clike',
             'libs/mode/matchbrackets',
             'libs/mode/placeholder',
+            'libs/mode/go',
+            'libs/mode/perl',
+            'libs/mode/python',
+            'libs/mode/ruby',
+            'libs/mode/vbscript',
+            'libs/mode/shell',
+            'libs/mode/rst',
         ]);
     });
     
@@ -112,7 +124,7 @@ require([
     
     // window view
     $(window).scroll(function(){
-        var triggerPoint = 100;
+        var triggerPoint = 300;
         if($(this).scrollTop() + triggerPoint > $(this).height() ) {
             // load more code list 
             dispatcher.trigger('view:loadmorecodes');

@@ -64,7 +64,7 @@ color: white;
     border-radius:7px;
     padding-bottom:15px;
 }
-#code_list_header,#code_list_body,#code_new_list, #all_date_buttons, #code_form{
+#code_list_header,#search_list_header, #code_list_body,#code_new_list, #all_date_buttons, #code_form{
     padding:10px 20px;
 }
 #code_list_header{
@@ -452,7 +452,7 @@ https://github.com/ghinda/css-toggle-switch
     .toggle {
         position: relative;
         padding: 0;
-        margin-left: 100px;
+        /*margin-left: 100px;*/
     }
 
     /* Position the label over all the elements, except the slide-button
@@ -876,4 +876,11 @@ https://github.com/ghinda/css-toggle-switch
     line-height: 22px;
 font-weight: bold;
 color: #333;
+}
+
+
+#loading_div{
+    text-align: center;
+    font-weight: bold;
+font-size: 14px;
 }

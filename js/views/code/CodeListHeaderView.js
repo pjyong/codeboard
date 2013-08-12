@@ -60,13 +60,18 @@ define([
         startSearch: function(){
             var searchMethod = (this.$el.find('#searchMethod').val() == '1') ? 'keycode' : 'keyword';
             var txt = this.$el.find('#query').val();
-            var searchModel = new SearchModel({searchType: searchMethod, searchKeywords: txt});
-            searchModel.fetch({
-                success: function(model, response, options){
-                    // 
-                    
-                }
-            });
+            if($.trim(txt) === ''){
+                $.gritter.add({
+                    // (string | mandatory) the heading of the notification
+                    title: '',
+                    // (string | mandatory) the text inside the notification
+                    text: 'Please input search string',
+                    // class_name: 'gritter-success'
+                });
+                return;
+            }
+            dispatcher.trigger('page:searchCodes', {searchMethod: searchMethod, searchKeyword: txt});
+            
         }
     });
     return codeListHeaderView;

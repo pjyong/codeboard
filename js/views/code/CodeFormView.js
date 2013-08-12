@@ -94,18 +94,36 @@ define([
                 var currentTime = new Date().getTime();
                 var t = parseInt((currentTime - this.submitTime)/1000);
                 if(t < duration){
-                    alert('you need wait ' + (duration-t) + ' seconds');
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: '',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Please wait ' + (duration-t) + ' seconds',
+                        // class_name: 'gritter-success'
+                    });
                     return this;
                 }else{
                     this.submitTime = currentTime;
                 }
             }
+            var f = this._childViews.codemirror.editor.getValue();
+            if(f === ''){
+                $.gritter.add({
+                    // (string | mandatory) the heading of the notification
+                    title: '',
+                    // (string | mandatory) the text inside the notification
+                    text: 'Please input code content.',
+                    // class_name: 'gritter-success'
+                });
+                return this;
+            }
             dispatcher.trigger('loading:start');
             var code = new CodeModel({
                 language: this.$('.code_form_language').val(),
                 // fragment: this.$('.code_form_fragment').val(),
-                fragment: this._childViews.codemirror.editor.getValue(),
-                status: this.$('.code_form_status').find('input').val(),
+                fragment: f,
+                // private: status=1, public: status = 0
+                status: this.$('#code_status_setting').prop('checked') ? 1 : 0,
                 keycode: (this.$('#code_key').val() === '') ? 'anonym' : $('#code_key').val()
             });
             var that = this;
@@ -126,7 +144,7 @@ define([
 
             var that = this;
             var keyCode = t.val();
-            if(keyCode === 'anonym' || keyCode === ''){
+            if(keyCode === ''){
                 // enable submit button
                 that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
                 return;
@@ -136,22 +154,36 @@ define([
                 success: function(model, response, options){
                     // 
                     if(0 !== parseInt(response)){
-                        // 
-                        bootbox.alert('Someone has already used this key, please use another special one.', function(){
-            
+                        if(1 === parseInt(response)){
+                            var tmp = '1 code.';
+                        }else{
+                            var tmp = response + ' codes.';
+                        }
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '',
+                            // (string | mandatory) the text inside the notification
+                            text: 'This key can index ' + tmp,
+                            // class_name: 'gritter-success'
                         });
                         t.attr('disabled', false);
                         // remove the loading icon
                         t.siblings('img').remove();
                     }else{
                         // alert('');
-                        bootbox.alert('Try to remember this key that index your history codes in the future.');
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '',
+                            // (string | mandatory) the text inside the notification
+                            text: 'Try to remember this key that index your history codes in the future.',
+                            // class_name: 'gritter-success'
+                        });
                         t.attr('disabled', false).siblings('img').remove();
-                        that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
                         // keep this key into local database
-                        that.websiteConfig.updateConfig('keycode', keyCode);
 
                     }
+                    that.websiteConfig.updateConfig('keycode', keyCode);
+                    that.$el.find('.code_form_submit').removeClass('disabled').attr('disabled', false);
                 }
             });
             // load loading icon after the text box and disable the submit button

@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/jquery.gritter.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/codemirror.css" />
@@ -57,15 +58,6 @@
   </p>
   
   <div class="clear"></div>
-</div>
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Some tips about Editor</h3>
-  </div>
-  <div class="modal-body">
-    <p>Use ctrl + up/down to enter/quit Fullscreen</p>
-  </div>
 </div>
 
   

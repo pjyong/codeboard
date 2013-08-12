@@ -11,20 +11,24 @@ define([
 		// localStorage: new LocalStorage("codes"),
         // url: domain + 'codes',
         url: function(){
-        	return '/codes/' + this.date + '/' + this.page;
+        	return '/codes/' + this.parameter + '/' + this.page;
         },
 
         initialize: function(options){
             // 
             options || (options = {});
 
-            // init the date
-            if(_.isUndefined(options.date)){
+            // init
+            if(_.isUndefined(options.date) && _.isUndefined(options.searchMethod)){
                 // get current date
                 var date = new Date();
-                this.date = date.getFullYear() + '-' + (date.getMonth() + 1);
+                this.parameter = date.getFullYear() + '-' + (date.getMonth() + 1);
+            }else if(!_.isUndefined(options.date)){
+                this.parameter = options.date;
+            }else if(!_.isUndefined(options.searchMethod)){
+                this.parameter = options.searchMethod + '/' + options.searchKeyword;
             }else{
-                this.date = options.date;
+                this.parameter = '';
             }
 
             // init the page 

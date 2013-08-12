@@ -71,9 +71,18 @@ class CodeRoute implements ControllerProviderInterface
                 $count = $app['model.code']->returnCountByKeyCode($searchKeywords);
                 return $app->json($count);
             }else if($searchType == 'keycode'){
+                // search by key code
+                $codes = $app['model.code']->selectByKeyCode($searchKeywords);
+
+                return $app->json($codes);
+
+            }else if($searchType == 'keywordcount'){
+                // get count from keyword
 
             }else{
-
+                // search by key word
+                $codes = $app['model.code']->selectByKeyWord($searchKeywords);
+                return $app->json($codes);
             }
 
         });
@@ -135,6 +144,22 @@ class CodeRoute implements ControllerProviderInterface
 
             $codes = $app['model.code']->seleteByDate($date, (int)$page);
             return $app->json($codes);
+
+        });
+
+        // 
+        $controllers->get("codes/{searchType}/{searchKeywords}/{page}", function(Application $app, $searchType, $searchKeywords, $page){
+            if($searchType == 'keycode'){
+                // search by key code
+                $codes = $app['model.code']->selectByKeyCode($searchKeywords, $page);
+
+                return $app->json($codes);
+
+            }else{
+                // search by key word
+                $codes = $app['model.code']->selectByKeyWord($searchKeywords, $page);
+                return $app->json($codes);
+            }
 
         });
 

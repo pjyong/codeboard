@@ -16,11 +16,12 @@ define([
     'views/ToolPageView',
     'views/AboutPageView',
     'views/HelpPageView',
+    'views/code/CodeListSearchHeaderView'
 
 ], function($, _, Backbone, dispatcher, LoadingDivView, 
     DefaultView, CodeView, DateButtonListView, CodeListView, 
     CodeFormView, CodeListHeaderView, CodeNewListView, Router,
-    ToolPageView, AboutPageView, HelpPageView
+    ToolPageView, AboutPageView, HelpPageView, CodeListSearchHeaderView
     ){
     
     var contentView = Backbone.View.extend({
@@ -47,13 +48,14 @@ define([
             codenewlist: CodeNewListView,
             toolpage: ToolPageView,
             aboutpage: AboutPageView,
-            helppage: HelpPageView
+            helppage: HelpPageView,
+            codelistsearchheader: CodeListSearchHeaderView
         },
 
         initialize: function(){
             // bind the context 
             _.bindAll(this, 'render', 'delayRender', 'addChildView', 'resetChildViews', 'renderChildViews', 
-                'showCodes', 'addCode', 'viewCode', 'showTools', 'showHelp', 'showAbout');
+                'showCodes', 'addCode', 'viewCode', 'showTools', 'showHelp', 'showAbout', 'searchCodes');
             // bind data
             this.codeTimeStatisticModel = this.options.codeTimeStatisticModel;
 
@@ -64,6 +66,7 @@ define([
             dispatcher.on('page:showHelp', this.showHelp);
             dispatcher.on('page:addCode', this.addCode);
             dispatcher.on('page:viewCode', this.viewCode);
+            dispatcher.on('page:searchCodes', this.searchCodes);
 
             dispatcher.on('view:rendercontentview', this.delayRender);
         },
@@ -175,6 +178,15 @@ define([
             // only contain two child views
             this.resetChildViews(['codelistheader', 'datebuttonlist', 'codelist']);
             this.addChildView('codelistheader').addChildView('datebuttonlist', true, options).addChildView('codelist', true, options).render();
+        },
+
+        searchCodes: function(options){
+            options || (options = {});
+            // delete code list view
+            this._childViews.codelist.destroy();
+            delete this._childViews.codelist;
+            this.resetChildViews(['codelistheader', 'codelistsearchheader', 'codelist']);
+            this.addChildView('codelistheader').addChildView('codelistsearchheader', true, options).addChildView('codelist', true, options).render();  
         },
 
         addCode: function(options){

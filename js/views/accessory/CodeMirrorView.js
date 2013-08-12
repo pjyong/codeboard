@@ -57,7 +57,7 @@ define([
                 // console.log();
                 var lines = instance.lineCount();
                 var chars = instance.getValue().length;
-                $('#codemirror_div .char_statistic label').html(chars+' characters / '+lines+' lines');
+                $('#codemirror_div .char_statistic .statistic_text').html(chars+' characters / '+lines+' lines');
             });
 
             // if activeline preset

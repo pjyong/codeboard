@@ -97,6 +97,13 @@ define([
             // get editor theme option
             this.websiteConfig.updateConfig('editorTheme', this.$('.local_theme').val());
             // this.websiteConfig.updateConfig('localCodes', '155,154');
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: '',
+                // (string | mandatory) the text inside the notification
+                text: 'You have finished default setting on local machine.',
+                // class_name: 'gritter-success'
+            });
         },
         
     });

@@ -67,15 +67,27 @@ class CodeModel extends AbstractBaseModel{
 		return $count['total'];	
 	}
 
-	public function selectByKeyCode($keycode){
-		$statement = $this->db->prepare("SELECT * FROM code");
+	public function selectByKeyCode($keycode, $offset = 0, $count = 10){
+		$offsetStart = $offset * $count;
+		$statement = $this->db->prepare("SELECT * FROM code WHERE code.keycode= ? ORDER BY created DESC LIMIT ?,?");
+		$statement->bindValue(1, $keycode, 'string');
+		$statement->bindValue(2, $offsetStart, 'integer');
+		$statement->bindValue(3, $count, 'integer');
 		$statement->execute();
 		$codes = $statement->fetchAll();
 
 		return $codes;	
 	}
-	public function selectByKeyWords(){
+	public function selectByKeyWord($keyword, $offset = 0, $count = 10){
+		$offsetStart = $offset * $count;
+		$statement = $this->db->prepare("SELECT * FROM code WHERE code.fragment LIKE ? ORDER BY created DESC LIMIT ?,?");
+		$statement->bindValue(1, '%' . $keyword . '%', 'string');
+		$statement->bindValue(2, $offsetStart, 'integer');
+		$statement->bindValue(3, $count, 'integer');
+		$statement->execute();
+		$codes = $statement->fetchAll();
 
+		return $codes;	
 	}
 
 	/**
