@@ -26,9 +26,13 @@ define([
         selectCode: function(id, active){
             // imit one request for this model
             var code = new CodeModel({id: id});
+            // 
+            dispatcher.trigger('loading:start');
             code.fetch({
                 success: function(code, response, options){
                     dispatcher.trigger('page:viewCode', code, active);
+                    // 
+                    dispatcher.trigger('loading:end');
                 }
             });
         },

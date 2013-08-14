@@ -106,7 +106,7 @@ define([
 
             if(!_.isUndefined(options.date) && options.date != this.collection.date){
                 // re-fetch
-                this.collection.date = options.date;
+                this.collection.parameter = options.date;
                 this.collection.page = 0;
                 this.collection.reset();
                 this.dispatcher.on('view:loadmorecodes', this.loadCodesByScroll);

@@ -33,6 +33,7 @@ define([
         // change the property of model
         toggleCurrent: function(e){
             e.preventDefault();
+
             if(!$(e.currentTarget).hasClass('disabled')){
                 this.model.toggleCurrent();
 

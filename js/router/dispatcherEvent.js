@@ -10,7 +10,7 @@ define([
     dispatcher.on('loading:start', function(){
         // alert(123);
         if($('body').find('#data_processing').length < 1){
-            $('body').append('<div id="data_processing" style="position:fixed;top:10px;left:30px;"><img src="/images/loading.gif" /></div>');
+            $('body').append('<div id="data_processing" style="position:fixed;top:10px;left:30px;border-radius: 5px;font-size: 12px;font-weight: bold;padding: 4px 4px;background: gold;color: #FFF;min-width: 60px;text-align: center;line-height: normal;text-decoration: none;z-index: 10000;">Loading...</div>');
         }
     });
 

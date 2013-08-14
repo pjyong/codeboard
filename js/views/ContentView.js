@@ -161,6 +161,7 @@ define([
                 link += '/'+activeStr;
             }
             router.navigate(link);
+            
             this.resetChildViews(['code']).addChildView('code', true, {model: codeModel}).render();
             // load the editor
             // dispatcher.trigger('load:editor', {value: codeModel.get('fragment'), id:codeId, activeStr: activeStr, mode:codeModel.get('language'), readOnly: 'nocursor', el: '#code_mirror_detail', viewObj:this});            
