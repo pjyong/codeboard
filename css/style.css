@@ -673,7 +673,6 @@ https://github.com/ghinda/css-toggle-switch
         background-color: #f7f7ee;
         
         color: black;
-        font-weight: bold;
         text-align: center;
         /*text-shadow: 1px 1px 1px #191b1e;*/
             
@@ -690,7 +689,7 @@ https://github.com/ghinda/css-toggle-switch
     .candy .slide-button {
         /*border: 1px solid #333;*/
 
-        background-color: #70c66b;
+        /*background-color: #70c66b;*/
         
         background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
         background-image:    -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
@@ -710,12 +709,12 @@ https://github.com/ghinda/css-toggle-switch
     }
 
     .candy span {
-        color: #fff;
+        color: #333;
     }
 
     .candy.blue .slide-button {
         /*background-color: #38a3d4;*/
-        background-color: #2f96b4;
+        /*background-color: #2f96b4;*/
     }
 
     .candy.yellow .slide-button {

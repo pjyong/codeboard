@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--
+
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/jquery.gritter.css" />
   <link rel="stylesheet" href="/css/layout.css" />
@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="/css/codemirror.css" />
   <link rel="stylesheet" href="/css/blackboard.css" />
   <link rel="stylesheet" href="/css/midnight.css" />
--->
-  <link rel="stylesheet" href="/css/compress.css" />
+
+  <!-- <link rel="stylesheet" href="/css/compress.css" /> -->
   <title><?php echo 'CodeBoard'; ?></title>
 </head>
 <body>
