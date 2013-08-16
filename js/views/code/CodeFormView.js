@@ -200,12 +200,6 @@ define([
             
         },
 
-        remove: function(){
-            // remove the event
-            this._childViews.codemirror.destroy();
-            Backbone.View.prototype.remove.apply(this);
-            
-        }
 
 	});
 

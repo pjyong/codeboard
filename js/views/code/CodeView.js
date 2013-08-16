@@ -91,11 +91,6 @@ define([
 
         },
 
-        remove: function(){
-            // remove the event
-            this._childViews.codeMirror.destroy();
-            Backbone.View.prototype.remove.apply(this);
-        }
 	});
 
 	return codeView;

@@ -66,17 +66,17 @@ require([
     
     Backbone.View.prototype.destroy = function(){
         // if the view has child views
-        // if(!_.isUndefined(this._childViews)){
-        //     var that = this;
-        //     _.each(this._childViews, function(value, key){
-        //         value.undelegateEvents();
-        //         value.remove();
-        //         value.off();
-        //     });
-        //     // 
-        //     // delete that._childViews;
-        //     // that._childViews = {};
-        // }
+        if(!_.isUndefined(this._childViews)){
+            var that = this;
+            _.each(this._childViews, function(value, key){
+                value.undelegateEvents();
+                value.remove();
+                value.off();
+            });
+            // 
+            delete that._childViews;
+            // that._childViews = {};
+        }
         this.undelegateEvents();
         this.remove();
         this.off();

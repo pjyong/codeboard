@@ -15,10 +15,12 @@ define([
         },
 
         initialize: function(){
+            this._childViews = {};
             _.bindAll(this, 'loadRunView', 'removeRunView');
             dispatcher.on('sidebar:loadrunview', this.loadRunView);
             dispatcher.on('sidebar:removerunview', this.removeRunView);
 
+            this._childViews.codeTimeStatisticView = new CodeTimeStatisticView({model: this.options.codeTimeStatisticModel});
             this.render();
         },
 
@@ -28,8 +30,7 @@ define([
             this.$el.append(SidebarTemplate);
             // load child views
             
-            var codeTimeStatisticView = new CodeTimeStatisticView({model: this.options.codeTimeStatisticModel});
-            this.$el.prepend(codeTimeStatisticView.$el);
+            this.$el.prepend(this._childViews.codeTimeStatisticView.$el);
             
             return this;
         },
@@ -37,17 +38,17 @@ define([
 
         loadRunView: function(options){
             if(!_.isUndefined(this.codeRunView)){
-                this.codeRunView.refreshOptions(options);
+                this._childViews.codeRunView.refreshOptions(options);
             }else{
-                this.codeRunView = new CodeRunView(options);
-                this.$el.prepend(this.codeRunView.$el);
+                this._childViews.codeRunView = new CodeRunView(options);
+                this.$el.prepend(this._childViews.codeRunView.$el);
             }
         },
 
         removeRunView: function(){
-            if(!_.isUndefined(this.codeRunView)){
-                this.codeRunView.destroy();
-                delete this.codeRunView;
+            if(!_.isUndefined(this._childViews.codeRunView)){
+                this._childViews.codeRunView.destroy();
+                delete this._childViews.codeRunView;
                 
             }
         }
