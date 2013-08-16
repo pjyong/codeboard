@@ -46,10 +46,19 @@ define([
             this.listenTo(dispatcher, 'editor:changetheme', this.changeTheme);
             this.id = this.options.id;
             
+
             
             _.extend(defaultOptions, this.options);
 
             this.editor = CodeMirror(this.$el[0], defaultOptions);
+
+            // console.log(defaultOptions);
+            if(defaultOptions.mode === 'application/x-httpd-php' || defaultOptions.mode === 'javascript'){
+                dispatcher.trigger('sidebar:loadrunview', {mode: defaultOptions.mode, editor: this.editor});
+            }else{
+                dispatcher.trigger('sidebar:removerunview');
+            }
+
 
             // send over signal to editorConfigView
             // dispatcher.trigger('editor:changetheme2');
@@ -194,6 +203,12 @@ define([
             // dispatcher.trigger('navigate', {url:});
 
         },
+
+        remove: function(){
+            // remove the event
+            Backbone.View.prototype.remove.apply(this);
+            dispatcher.trigger('sidebar:removerunview');
+        }
         
     });
  
