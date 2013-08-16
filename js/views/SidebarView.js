@@ -15,6 +15,10 @@ define([
         },
 
         initialize: function(){
+            _.bindAll(this, 'loadRunView', 'removeRunView');
+            dispatcher.on('sidebar:loadrunview', this.loadRunView);
+            dispatcher.on('sidebar:removerunview', this.removeRunView);
+
             this.render();
         },
 
@@ -23,16 +27,31 @@ define([
             // load self
             this.$el.append(SidebarTemplate);
             // load child views
-            var codeRunView = new CodeRunView();
+            
             var codeTimeStatisticView = new CodeTimeStatisticView({model: this.options.codeTimeStatisticModel});
-            console.log(codeRunView);
             this.$el.prepend(codeTimeStatisticView.$el);
-            this.$el.prepend(codeRunView.$el);
-
-
-
+            
             return this;
         },
+
+
+        loadRunView: function(options){
+            if(!_.isUndefined(this.codeRunView)){
+                this.codeRunView.refreshOptions(options);
+            }else{
+                this.codeRunView = new CodeRunView(options);
+                this.$el.prepend(this.codeRunView.$el);
+            }
+        },
+
+        removeRunView: function(){
+            if(!_.isUndefined(this.codeRunView)){
+                this.codeRunView.destroy();
+                delete this.codeRunView;
+                
+            }
+        }
+
     });
 
     return sidebarView;

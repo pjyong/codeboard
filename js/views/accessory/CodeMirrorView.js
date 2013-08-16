@@ -92,6 +92,12 @@ define([
         },
         changeMode: function(options){
             this.editor.setOption('mode', options.mode);
+            // if the language is javascript or php, sidebar load run button view
+            if(options.mode === 'application/x-httpd-php' || options.mode === 'javascript'){
+                dispatcher.trigger('sidebar:loadrunview', {mode: options.mode, editor: this.editor});
+            }else{
+                dispatcher.trigger('sidebar:removerunview');
+            }
         },
 
         changeTheme: function(options){
