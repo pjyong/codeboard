@@ -65,8 +65,8 @@
   
 <input type="hidden" id="beginDate" value="<?php echo $beginDate; ?>" />
 <input type="hidden" id="endDate" value="<?php echo $endDate; ?>" />  
-<!-- <script data-main="/js/bootstrap.js" src="/js/libs/require.js"></script> -->
-<script data-main="/js/dist/bootstrap.js" src="/js/dist/libs/require.js"></script>
+<script data-main="/js/bootstrap.js" src="/js/libs/require.js"></script>
+<!-- <script data-main="/js/dist/bootstrap.js" src="/js/dist/libs/require.js"></script> -->
 </div>
 </div>
 </body>

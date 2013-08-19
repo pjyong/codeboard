@@ -72,7 +72,11 @@ define([
                 }
                 // if this string contains some not-allowed php functions
                 dispatcher.trigger('loading:start');
-                $.ajax('run', {data:{phpcode: this.editor.getValue()}, dataType: 'html', type: 'post'}).done(function(html){
+                $.ajax('run', {data:{phpcode: this.editor.getValue()}, dataType: 'html', type: 'post', error: function(xhr, status, error){
+                    responseText = xhr.responseText;
+                    dispatcher.trigger('loading:end');
+                    dispatcher.trigger('highlightview:runcode', responseText);
+                }}).done(function(html){
                     responseText = html;
                     dispatcher.trigger('loading:end');
                     dispatcher.trigger('highlightview:runcode', responseText);

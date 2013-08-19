@@ -183,11 +183,16 @@ class CodeRoute implements ControllerProviderInterface
             // print_r($this->php_check_syntax($request->request->get('phpcode')));
 
             // }
+            $code = $request->request->get('phpcode');
+            // remove the tag '<?php'
+            $code = str_replace('<?php', '', $code);
+            
             ob_start();
-            $filePath = 'C:\xampp\tmp\tmp_eval'.mt_rand();
-            file_put_contents($filePath, $request->request->get('phpcode'));
-            register_shutdown_function('unlink', $filePath);
-            require($filePath);
+            eval($code);
+            // $filePath = 'C:\xampp\tmp\tmp_eval'.mt_rand();
+            // file_put_contents($filePath, $request->request->get('phpcode'));
+            // register_shutdown_function('unlink', $filePath);
+            // require($filePath);
         
             // set_error_handler("my_handler");
 
