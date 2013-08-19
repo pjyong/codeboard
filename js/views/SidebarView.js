@@ -37,7 +37,7 @@ define([
 
 
         loadRunView: function(options){
-            if(!_.isUndefined(this.codeRunView)){
+            if(!_.isUndefined(this._childViews.codeRunView)){
                 this._childViews.codeRunView.refreshOptions(options);
             }else{
                 this._childViews.codeRunView = new CodeRunView(options);

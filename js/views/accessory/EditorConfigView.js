@@ -56,7 +56,6 @@ define([
             if(!_.isUndefined(editorThemeConfig)){
                 editorTheme = editorThemeConfig.get('value');
                 // dispatcher.trigger('editor:changetheme', {editorTheme: editorTheme});
-                console.log(editorTheme);
             }
             var compiledTemplate = _.template(EditorConfigTemplate, 
                 {languages: languages, editorTheme: editorTheme, 
@@ -100,8 +99,10 @@ define([
             $.gritter.add({
                 // (string | mandatory) the heading of the notification
                 title: '',
+                image: '/images/start_here_64.png',
+                class_name: 'codeboard-success',
                 // (string | mandatory) the text inside the notification
-                text: 'You have finished default setting on local machine.',
+                text: '<strong>Successful</strong> You have finished default setting on your machine.',
                 // class_name: 'gritter-success'
             });
         },

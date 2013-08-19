@@ -49,11 +49,11 @@ define([
 
             
             _.extend(defaultOptions, this.options);
-
             this.editor = CodeMirror(this.$el[0], defaultOptions);
 
             // console.log(defaultOptions);
-            if(defaultOptions.mode === 'application/x-httpd-php' || defaultOptions.mode === 'javascript'){
+                // alert(defaultOptions.mode);
+            if(defaultOptions.mode === 'php' || this.mode === 'application/x-httpd-php' || defaultOptions.mode === 'javascript'){
                 dispatcher.trigger('sidebar:loadrunview', {mode: defaultOptions.mode, editor: this.editor});
             }else{
                 dispatcher.trigger('sidebar:removerunview');
@@ -208,6 +208,7 @@ define([
             // remove the event
             Backbone.View.prototype.remove.apply(this);
             dispatcher.trigger('sidebar:removerunview');
+            dispatcher.trigger('highlight:removecoderesult');
         }
         
     });

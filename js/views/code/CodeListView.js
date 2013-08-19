@@ -64,8 +64,10 @@ define([
                         $.gritter.add({
                             // (string | mandatory) the heading of the notification
                             title: '',
+                            image: '/images/start_here_64.png',
+                            class_name: 'codeboard-info',
                             // (string | mandatory) the text inside the notification
-                            text: 'No more codes.',
+                            text: '<strong>Master of hands</strong> No more codes.',
                             // class_name: 'gritter-success'
                         });
                         // off the event

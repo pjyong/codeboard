@@ -13,11 +13,11 @@ define('CODEBOARD_PATH',   ROOT_PATH . '/src/CodeBoard');
 $app = new Application();
 
 // enabled debug mode
-$app['debug'] = true;
+$app['debug'] = false;
+
 
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new SessionServiceProvider());
-
 // load config
 $app['database.connection'] = array(
 	'driver'    => 'pdo_mysql',

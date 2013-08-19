@@ -69,6 +69,8 @@ define([
             dispatcher.on('page:searchCodes', this.searchCodes);
 
             dispatcher.on('view:rendercontentview', this.delayRender);
+
+            
         },
 
         render: function(){
@@ -202,6 +204,26 @@ define([
             }
             // once the stuff of the form is ready, automatically render
             this.resetChildViews(['codeform', 'codenewlist']).addChildView('codenewlist', true, options).addChildView('codeform', false, options);
+            $.gritter.removeAll();
+            // add two nitifications
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: '',
+                image: '/images/start_here_64.png',
+                sticky: true,
+                // (string | mandatory) the text inside the notification
+                text: '<strong>Master of hands</strong> Use Ctrl + Up/Down to <em>Enter</em>/<em>Quit</em> fullscreen, when you focus in the editor.',
+                class_name: 'codeboard-info'
+            });
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: '',
+                image: '/images/start_here_64.png',
+                class_name: 'codeboard-info',
+                sticky: true,
+                // (string | mandatory) the text inside the notification
+                text: '<strong>Master of hands</strong> Show "Run" button, when you choose <em>php</em> or <em>javascript</em>.',
+            });
         },
 
         showHelp: function(){

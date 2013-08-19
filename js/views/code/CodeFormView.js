@@ -97,8 +97,10 @@ define([
                     $.gritter.add({
                         // (string | mandatory) the heading of the notification
                         title: '',
+                        image: '/images/start_here_64.png',
+                        class_name: 'codeboard-warning',
                         // (string | mandatory) the text inside the notification
-                        text: 'Please wait ' + (duration-t) + ' seconds',
+                        text: '<strong>Warning</strong> Please wait ' + (duration-t) + ' seconds.',
                         // class_name: 'gritter-success'
                     });
                     return this;
@@ -111,8 +113,10 @@ define([
                 $.gritter.add({
                     // (string | mandatory) the heading of the notification
                     title: '',
+                    image: '/images/start_here_64.png',
+                    class_name: 'codeboard-warning',
                     // (string | mandatory) the text inside the notification
-                    text: 'Please input code content.',
+                    text: '<strong>Warning</strong> Please input code content.',
                     // class_name: 'gritter-success'
                 });
                 return this;
@@ -134,6 +138,15 @@ define([
                     that.dispatcher.trigger('loading:end');
                     // add this model into, from CodeListView
                     dispatcher.trigger('view:addonecode', model);
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: '',
+                        image: '/images/start_here_64.png',
+                        class_name: 'codeboard-success',
+                        // (string | mandatory) the text inside the notification
+                        text: '<strong>Successful</strong> One code boarded.',
+                        // class_name: 'gritter-success'
+                    });
                 }
             });
             
@@ -161,9 +174,11 @@ define([
                         }
                         $.gritter.add({
                             // (string | mandatory) the heading of the notification
+                            image: '/images/start_here_64.png',
+                            class_name: 'codeboard-info',
                             title: '',
                             // (string | mandatory) the text inside the notification
-                            text: 'This key can index ' + tmp,
+                            text: '<strong>Master of hands</strong> This key can index ' + tmp,
                             // class_name: 'gritter-success'
                         });
                         t.attr('disabled', false);
@@ -174,8 +189,10 @@ define([
                         $.gritter.add({
                             // (string | mandatory) the heading of the notification
                             title: '',
+                            image: '/images/start_here_64.png',
+                            class_name: 'codeboard-info',
                             // (string | mandatory) the text inside the notification
-                            text: 'Try to remember this key that index your history codes in the future.',
+                            text: '<strong>Master of hands</strong> Try to remember this key that index your history codes in the future.',
                             // class_name: 'gritter-success'
                         });
                         t.attr('disabled', false).siblings('img').remove();

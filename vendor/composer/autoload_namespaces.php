@@ -14,6 +14,7 @@ return array(
     'Symfony\\Component\\Serializer\\' => $vendorDir . '/symfony/serializer/',
     'Symfony\\Component\\Security\\' => $vendorDir . '/symfony/security/',
     'Symfony\\Component\\Routing\\' => $vendorDir . '/symfony/routing/',
+	'Symfony\\Component\\Debug\\' => $vendorDir . '/symfony/debug/',
     'Symfony\\Component\\PropertyAccess\\' => $vendorDir . '/symfony/property-access/',
     'Symfony\\Component\\Process\\' => $vendorDir . '/symfony/process/',
     'Symfony\\Component\\OptionsResolver\\' => $vendorDir . '/symfony/options-resolver/',

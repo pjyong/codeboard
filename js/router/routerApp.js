@@ -45,6 +45,7 @@ define([
         addCode: function(){
             this.mainMenu.setLiveNav('board');
             dispatcher.trigger('page:addCode');
+            
         },
 
         addCodeForFrontPage: function(){

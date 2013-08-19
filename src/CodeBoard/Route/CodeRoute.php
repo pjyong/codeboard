@@ -8,6 +8,10 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpKernel\Debug\ErrorHandler;
+use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
+use Silex\MyException;
+
 
 class CodeRoute implements ControllerProviderInterface
 {
@@ -171,8 +175,34 @@ class CodeRoute implements ControllerProviderInterface
 
         });
 
+        // run php code
+        $controllers->post("run", function(Application $app, Request $request){
+            // ErrorHandler::register();
+            // ExceptionHandler::register();
+            // if($this->php_check_syntax($request->request->get('phpcode'))){
+            // print_r($this->php_check_syntax($request->request->get('phpcode')));
+
+            // }
+            ob_start();
+            $filePath = 'C:\xampp\tmp\tmp_eval'.mt_rand();
+            file_put_contents($filePath, $request->request->get('phpcode'));
+            register_shutdown_function('unlink', $filePath);
+            require($filePath);
+        
+            // set_error_handler("my_handler");
+
+            // eval($request->request->get('phpcode'));
+            // print_r($this->php_syntax_error($request->request->get('phpcode')));
+            $content = ob_get_contents();
+            ob_end_clean();
+            return new Response($content);
+        });
+
 
 		return $controllers;
 	}
+
+   
+    
 
 }

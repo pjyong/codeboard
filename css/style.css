@@ -902,3 +902,108 @@ padding: 0px 12px;
     margin-top:8px;
  
 }
+
+
+
+
+/* overwrite notification */
+#gritter-notice-wrapper{width:500px;}
+#gritter-notice-wrapper .gritter-item-wrapper {
+    border-radius: 4px;
+    background-color: rgba(220,235,245,0.8);
+    border:1px solid #fbeed5;
+    border-color: rgba(125,175,230,0.9);
+    font-family: 'Droid Sans',Verdana,Arial,DFKai-SB,BiauKai,KaiTi,STKaiti,"Microsoft YaHei New","Microsoft Yahei","微软雅黑",Helvetica,sans-serif,STXihei,华文细黑;
+
+
+}
+
+#gritter-notice-wrapper .gritter-top{
+    background: none;
+}
+
+#gritter-notice-wrapper .gritter-item{
+    color: rgba(5,65,130,0.9);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    background:none;
+    padding:2px 20px 2px 11px;
+    font-size: 14px;
+
+}
+
+#gritter-notice-wrapper .gritter-bottom{
+    background: none;
+}
+
+#gritter-notice-wrapper .gritter-with-image{
+    width:400px;
+}
+
+#gritter-notice-wrapper .gritter-close{
+    right:3px;
+    left:auto;
+}
+
+
+#gritter-notice-wrapper .gritter-close{
+    
+width: 14px;
+height: 14px;
+margin-top: 1px;
+line-height: 14px;
+vertical-align: text-top;
+background-image: url("../img/glyphicons-halflings.png");
+background-position: -312px 0;
+background-repeat: no-repeat;
+}
+
+/*warning*/
+#gritter-notice-wrapper .codeboard-warning .gritter-item{
+    color: #c09853;
+}
+
+#gritter-notice-wrapper .gritter-item-wrapper.codeboard-warning{
+    border-color: #c09853;
+    background-color: #fcf8e3;
+}
+
+/*success*/
+#gritter-notice-wrapper .codeboard-success .gritter-item{
+    color: #468847;
+}
+
+#gritter-notice-wrapper .gritter-item-wrapper.codeboard-success{
+    border-color: #468847;
+    background-color: #dff0d8;
+}
+
+
+
+
+
+
+
+
+
+/*high light*/
+
+#high_light{
+    font-size: 0.9em;
+color: #eee;
+
+width: 960px;
+margin: 10px auto;
+}
+
+#high_light_inner{
+background: #333;
+border-radius: 5px;
+    padding: 10px 15px;
+border: 2px solid #ccc;
+font-size:14px;
+}
+
+#hight_title{
+    color: gold;
+    font-weight: bold;
+}

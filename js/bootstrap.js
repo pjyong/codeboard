@@ -37,32 +37,36 @@ require([
     'views/SidebarView',
     'models/code/CodeTimeStatisticModel',
     'router/routerApp',
+    'views/HighLightView',
     'libs/jquery.timeago',
     'bootstrap.lib',
     'jquery.gritter'
- ], function(dispatcher, ContentView, MainMenuView, SidebarView, CodeTimeStatisticModel, Router){
-    require(['libs/codemirror'], function(){
-        require([
-            // 'libs/mode/javascript',
-            // 'libs/mode/php',
-            // 'libs/mode/sql',
-            // 'libs/mode/yaml',
-            // 'libs/mode/xml',
-            // 'libs/mode/css',
-            // 'libs/mode/clike',
-            // 'libs/mode/matchbrackets',
-            // 'libs/mode/placeholder',
-            // 'libs/mode/go',
-            // 'libs/mode/perl',
-            // 'libs/mode/python',
-            // 'libs/mode/ruby',
-            // 'libs/mode/vbscript',
-            // 'libs/mode/shell',
-            // 'libs/mode/rst',
-            'libs/mode/compressmode',
-
-        ]);
+ ], function(dispatcher, ContentView, MainMenuView, SidebarView, CodeTimeStatisticModel, Router, HighLightView){
+    $.extend($.gritter.options, { 
+        position: 'bottom-right', // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
     });
+    
+    require([
+        // 'libs/mode/javascript',
+        // 'libs/mode/php',
+        // 'libs/mode/sql',
+        // 'libs/mode/yaml',
+        // 'libs/mode/xml',
+        // 'libs/mode/css',
+        // 'libs/mode/clike',
+        // 'libs/mode/matchbrackets',
+        // 'libs/mode/placeholder',
+        // 'libs/mode/go',
+        // 'libs/mode/perl',
+        // 'libs/mode/python',
+        // 'libs/mode/ruby',
+        // 'libs/mode/vbscript',
+        // 'libs/mode/shell',
+        // 'libs/mode/rst',
+        'libs/mode/compressmode',
+
+    ]);
+    
     
     Backbone.View.prototype.destroy = function(){
         // if the view has child views
@@ -102,7 +106,8 @@ require([
         // set id make it as existing
         codeTimeStatisticModel.set('id', 1);
     }});
-
+    // load code result view
+    var highLightView = new HighLightView();
     // load rooted views
     var contentView = new ContentView({codeTimeStatisticModel: codeTimeStatisticModel});
     // contentView.render();

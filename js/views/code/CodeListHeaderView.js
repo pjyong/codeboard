@@ -64,8 +64,10 @@ define([
                 $.gritter.add({
                     // (string | mandatory) the heading of the notification
                     title: '',
+                    image: '/images/start_here_64.png',
+                    class_name: 'codeboard-warning',
                     // (string | mandatory) the text inside the notification
-                    text: 'Please input search string',
+                    text: '<strong>Warning</strong> Please input search string',
                     // class_name: 'gritter-success'
                 });
                 return;
