@@ -1007,3 +1007,35 @@ font-size:14px;
     color: gold;
     font-weight: bold;
 }
+
+
+kbd{
+    background-color: #eee;
+background-image: -webkit-linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+background-image: -moz-linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+background-image: -ms-linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+background-image: -o-linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+background-image: linear,false,rgba(255,255,255,0.05),rgba(0,0,0,0.1);
+border: none;
+border-radius: 3px;
+box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2),inset 0 2px 0 rgba(255,255,255,0.1),inset 0 1.2em 0 rgba(255,255,255,0.1),inset 0 -0.2em 0 rgba(255,255,255,0.1),inset 0 -0.25em 0 rgba(0,0,0,0.25),0 0.25em 0.25em rgba(0,0,0,0.05);
+color: #444;
+cursor: pointer;
+display: inline-block;
+margin: 0 3px 3px 0;
+padding: 2px 4px 4px;
+position: relative;
+text-decoration: none;
+text-shadow: 0 1px 1px rgba(255,255,255,0.25);
+vertical-align: middle;
+    font-family: 'andale mono', 'monotype.com', 'lucida console', monospace;
+}
+kbd kbd {
+background: transparent;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+padding: 0 !important;
+margin: 0 !important;
+border: none !important;
+}

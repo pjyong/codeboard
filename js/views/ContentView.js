@@ -212,7 +212,7 @@ define([
                 image: '/images/start_here_64.png',
                 sticky: true,
                 // (string | mandatory) the text inside the notification
-                text: '<strong>Master of hands</strong> Use Ctrl + Up/Down to <em>Enter</em>/<em>Quit</em> fullscreen, when you focus in the editor.',
+                text: '<strong>Master of hands</strong> Use <kbd><kbd>CTRL</kbd>+<kbd>↑</kbd></kbd> to enter fullscreen, when you focus in the editor.',
                 class_name: 'codeboard-info'
             });
             $.gritter.add({
@@ -222,7 +222,7 @@ define([
                 class_name: 'codeboard-info',
                 sticky: true,
                 // (string | mandatory) the text inside the notification
-                text: '<strong>Master of hands</strong> Show "Run" button, when you choose <em>php</em> or <em>javascript</em>.',
+                text: '<strong>Master of hands</strong> Show <kbd><kbd>Run</kbd></kbd>, when you choose <em>php</em> or <em>javascript</em>.',
             });
         },
 

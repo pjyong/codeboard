@@ -116,7 +116,7 @@ define([
                     image: '/images/start_here_64.png',
                     class_name: 'codeboard-warning',
                     // (string | mandatory) the text inside the notification
-                    text: '<strong>Warning</strong> Please input code content.',
+                    text: '<strong>Warning</strong> Please typein code.',
                     // class_name: 'gritter-success'
                 });
                 return this;
@@ -216,6 +216,12 @@ define([
             // set editor
             
         },
+
+        remove: function(){
+            Backbone.View.prototype.remove.apply(this);
+            // remove the tips
+            $.gritter.removeAll();
+        }
 
 
 	});

@@ -45,7 +45,7 @@ define([
                     image: '/images/start_here_64.png',
                     class_name: 'codeboard-warning',
                     // (string | mandatory) the text inside the notification
-                    text: '<strong>Warning</strong> Please input some code.',
+                    text: '<strong>Warning</strong> Please typein code.',
                     // class_name: 'gritter-success'
                 });
                 return;
