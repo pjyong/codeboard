@@ -1039,3 +1039,7 @@ padding: 0 !important;
 margin: 0 !important;
 border: none !important;
 }
+
+.code_preview .code_p_body{
+word-break:break-all
+}
